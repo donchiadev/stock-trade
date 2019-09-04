@@ -27,4 +27,4 @@ The original project of this application expected a real database for saving and
 
 ## Run the App on Browser without Installation
 
-Use this [link](unequaled-fight.surge.sh)
+Use this [link](https://unequaled-fight.surge.sh)
