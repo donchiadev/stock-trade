@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <app-header></app-header>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col">
+          <transition
+            enter-class="animated fadeInLeft"
+            enter-to-class="animated fadeInLeft"
+            mode="out-in"
+          >
+            <router-view></router-view>
+          </transition>
+        </div>
+      </div>
+    </div>
+    <vue-particles class="vp" color="#dedede"></vue-particles>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    appHeader: Header
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.vp {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #00b894;
 }
 </style>
