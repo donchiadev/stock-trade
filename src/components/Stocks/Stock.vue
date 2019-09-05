@@ -4,14 +4,14 @@
       {{ stock.name }}
       <span
         class="stock-price"
-      >(Price: {{ stock.price }} {{ portfolio ? `| Quantity: ${stock.quantity}` : "" }})</span>
+      >(Price: {{ stock.price }} {{ isPortfolio ? `| Quantity: ${stock.quantity}` : "" }})</span>
     </div>
     <div class="card-body form-inline">
       <input type="text" class="form-control" placeholder="Quantity" v-model.trim="quantity" />
       <div class="ml-auto">
         <button
           @click="buyStocks({id: stock.id, quantity})"
-          v-if="!portfolio"
+          v-if="!isPortfolio"
           class="btn btn-outline-info"
         >Buy</button>
         <button
@@ -25,13 +25,11 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 export default {
-  props: ["stock", "portfolio"],
+  props: ["stock", "isPortfolio"],
   data() {
     return {
-      quantity: undefined
+      quantity: null
     };
   },
   methods: {

@@ -2,8 +2,6 @@ import { generateDeviation, sanitizeQuantity } from "../utils"
 
 export default {
   buyStocks(state, payload) {
-    let companyStocks,
-      stocksCost = null
     try {
       payload.quantity = sanitizeQuantity(payload.quantity)
       const companyStocks = state.stocks.find(stock => stock.id === payload.id)

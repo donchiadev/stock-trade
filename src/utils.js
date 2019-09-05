@@ -72,3 +72,17 @@ export const sanitizeQuantity = value => {
     )
   return value
 }
+
+export const buildPortfolioStocksList = (portfolio, companiesStocks) => {
+  let portfolioStocksList = []
+  portfolio.forEach(stockInPortfolio => {
+    const stockData = companiesStocks.find(
+      stock => stock.id === stockInPortfolio.id
+    )
+    portfolioStocksList.push({
+      ...stockData,
+      quantity: stockInPortfolio.quantity
+    })
+  })
+  return portfolioStocksList
+}
